@@ -1,0 +1,9 @@
+skills:
+  increment-notion-mcp-counter:
+    harness: claude
+    timeout: 600
+    env:
+      # A fresh value per run, so scsh never serves a cached result:
+      # every run must really increment the counter.
+      - INCREMENT_NONCE: ${INCREMENT_NONCE:?run ./increment-notion-mcp-counter.sh, which sets it}
+    result: tmp/increment-notion-mcp-counter.json
